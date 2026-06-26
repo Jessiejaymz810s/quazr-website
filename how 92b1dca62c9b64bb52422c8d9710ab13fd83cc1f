@@ -1,0 +1,29 @@
+[33mcommit 92b1dca62c9b64bb52422c8d9710ab13fd83cc1f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Jessiejaymz810s <jessiejaymz810s@users.noreply.github.com>
+Date:   Tue May 12 08:28:51 2026 -0400
+
+    Remove Stripe payment button and update support section
+
+[33mcommit 15f7b0c44a796078d23b31e28febcae81b8ec545[m
+Author: Jessiejaymz810s <jessiejaymz810s@users.noreply.github.com>
+Date:   Mon May 11 19:03:03 2026 -0400
+
+    Add Solscan links to Tokenomics and footer
+
+[33mcommit 10ba4e0b9c4f421890b2688cc21fe9125616bb32[m
+Author: Jessiejaymz810s <jessiejaymz810s@users.noreply.github.com>
+Date:   Mon May 11 18:05:51 2026 -0400
+
+    Embed live DexScreener chart
+
+[33mcommit cd24e282f43adc17762503579025afe64fbc0161[m
+Author: Jessiejaymz810s <jessiejaymz810s@users.noreply.github.com>
+Date:   Mon May 11 18:00:57 2026 -0400
+
+    Update Twitter links to @hoodpi_arris
+
+[33mcommit 09d0981c532d6b58ebf6d9f5e5756ee31e6e5ded[m
+Author: Jessiejaymz810s <jessiejaymz810s@users.noreply.github.com>
+Date:   Mon May 11 17:50:38 2026 -0400
+
+    Add Donate button to navbar and Solana donation address section

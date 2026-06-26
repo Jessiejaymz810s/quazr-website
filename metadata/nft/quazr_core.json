@@ -1,0 +1,20 @@
+{
+  "name": "Quazr Core",
+  "symbol": "QZNFT",
+  "description": "the hyper-realistic, glowing quasar at the center of the Quazr universe. Emitting pure cosmic energy.",
+  "image": "https://raw.githubusercontent.com/Jessiejaymz810s/1sttoken1-14684bf365541cf108d53ec4e32cab3c0d2fa029-1-/main/docs/assets/nft/quazr_core.png",
+  "attributes": [
+    { "trait_type": "Type", "value": "Celestial" },
+    { "trait_type": "Energy", "value": "Infinite" },
+    { "trait_type": "Rarity", "value": "Legendary" }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://raw.githubusercontent.com/Jessiejaymz810s/1sttoken1-14684bf365541cf108d53ec4e32cab3c0d2fa029-1-/main/docs/assets/nft/quazr_core.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

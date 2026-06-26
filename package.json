@@ -1,0 +1,68 @@
+{
+  "name": "1sttoken1-14684bf365541cf108d53ec4e32cab3c0d2fa029-1-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1aU6gutbkbd.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "npx hardhat compile",
+    "deploy:arb": "npx hardhat run scripts/deploy-arbitrage.js --network mainnet",
+    "deploy:arb:sepolia": "npx hardhat run scripts/deploy-arbitrage.js --network sepolia",
+    "deploy:arb:local": "npx hardhat run scripts/deploy-arbitrage.js --network hardhat",
+    "bot:start": "node scripts/flashbot-searcher.mjs",
+    "fork": "npx hardhat node",
+    "pool:create": "node scripts/create-raydium-pool.mjs",
+    "pool:create:dry": "node scripts/create-raydium-pool.mjs --dry-run",
+    "pool:add-liquidity": "node scripts/add-raydium-liquidity.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jessiejaymz810s/1sttoken1-14684bf365541cf108d53ec4e32cab3c0d2fa029-1-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jessiejaymz810s/1sttoken1-14684bf365541cf108d53ec4e32cab3c0d2fa029-1-/issues"
+  },
+  "homepage": "https://github.com/Jessiejaymz810s/1sttoken1-14684bf365541cf108d53ec4e32cab3c0d2fa029-1-#readme",
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.32.1",
+    "@flashbots/ethers-provider-bundle": "^1.0.0",
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
+    "@metaplex-foundation/umi": "^1.5.1",
+    "@metaplex-foundation/umi-bundle-defaults": "^1.5.1",
+    "@raydium-io/raydium-sdk-v2": "^0.2.55-alpha",
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.98.4",
+    "@tensor-oss/tensorswap-sdk": "^4.5.0",
+    "bip32": "^5.0.1",
+    "bip39": "^3.1.0",
+    "bitcoinjs-lib": "^7.0.1",
+    "bn.js": "^5.2.4",
+    "bs58": "^6.0.0",
+    "decimal.js": "^10.6.0",
+    "ecpair": "^3.0.1",
+    "tiny-secp256k1": "^2.2.4",
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.1.2",
+    "@nomicfoundation/hardhat-ethers": "^3.1.3",
+    "@nomicfoundation/hardhat-ignition": "^0.15.16",
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.17",
+    "@nomicfoundation/hardhat-network-helpers": "^1.1.2",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.1.3",
+    "@nomicfoundation/ignition-core": "^0.15.15",
+    "@openzeppelin/contracts": "^5.6.1",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "chai": "^4.5.0",
+    "dotenv": "^17.4.2",
+    "ethers": "^6.16.0",
+    "hardhat": "^2.28.6",
+    "hardhat-gas-reporter": "^1.0.10",
+    "solidity-coverage": "^0.8.17"
+  }
+}

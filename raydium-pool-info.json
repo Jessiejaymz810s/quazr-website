@@ -1,0 +1,12 @@
+{
+  "poolId": "36aYAVBa3xtwpgdfUjQawgeg7azNpvpMtBtdmzwo8koS",
+  "lpMint": "GWGSL8vVc8FjPj5CGjRmDN7hpvm7g8WkmJDeH52AQomF",
+  "mintA": "EqzogyGM1RKUdwpNgUeuWLy6L8wiFxGxFQcugkiPsemc",
+  "mintB": "So11111111111111111111111111111111111111112",
+  "initialLiquidity": {
+    "qzsolAmount": 100000,
+    "solAmount": 1
+  },
+  "createdAt": "2026-06-26T16:34:24Z",
+  "txId": "37FzPE86BUwZiY3ytwSRKwQQ4WjbLa74wLXrAAkHus356BMPJSmg7zgbi4pPqsHnPFbnhv2KyvGJiw1tvjRgcWvG"
+}

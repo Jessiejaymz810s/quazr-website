@@ -1,0 +1,18 @@
+{
+  "name": "Quazr",
+  "symbol": "QZSOL",
+  "description": "Quazr Token on Solana",
+  "image": "https://raw.githubusercontent.com/Jessiejaymz810s/1sttoken1-14684bf365541cf108d53ec4e32cab3c0d2fa029-1-/main/qzsol.jpg",
+  "attributes": [],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://raw.githubusercontent.com/Jessiejaymz810s/1sttoken1-14684bf365541cf108d53ec4e32cab3c0d2fa029-1-/main/qzsol.jpg",
+        "type": "image/jpeg"
+      }
+    ]
+  },
+  "extensions": {
+    "twitter": "https://x.com/hoodpi_arris"
+  }
+}

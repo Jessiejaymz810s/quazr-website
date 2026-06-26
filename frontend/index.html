@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quazr ($QZSOL) - The Cosmic Meme on Solana</title>
+    <meta name="description" content="Quazr ($QZSOL) is the most powerful cosmic meme token on the Solana blockchain. Join the journey to the moon and beyond!">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">QUAZR</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#howtobuy">How to Buy</a>
+            <a href="https://x.com/hoodpi_arris" target="_blank" rel="noopener noreferrer" class="btn-sm">Twitter</a>
+            <a href="https://www.instagram.com/jjaybeeze1/" target="_blank" rel="noopener noreferrer" class="btn-sm">Instagram</a>
+            <a href="#support" class="btn-sm btn-donate">Donate</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="QUAZR TOKEN">QUAZR TOKEN</h1>
+            <p class="tagline">Harness the Cosmic Energy of the Solana Blockchain.</p>
+            <div class="hero-btns">
+                <a href="#howtobuy" class="btn btn-primary">Buy $QZSOL</a>
+                <a href="https://dexscreener.com/solana/EqzogyGM1RKUdwpNgUeuWLy6L8wiFxGxFQcugkiPsemc" class="btn btn-secondary">Chart</a>
+
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="assets/quazr_meme.png" alt="Quazr Cosmic Meme" class="floating">
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section glass">
+            <h2>About Quazr</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Quazr ($QZSOL) is not just another meme coin. Inspired by the most luminous and energetic entities in the universe—quasars—our mission is to bring unrivaled energy to the Solana ecosystem.</p>
+                    <p>Born from the cosmic dust of the blockchain, Quazr is built for those who look at the stars and say, "We're going there."</p>
+                </div>
+                <div class="about-image">
+                    <img src="assets/qzsol.jpg" alt="Quasar" class="glow">
+                </div>
+            </div>
+        </section>
+
+        <section id="tokenomics" class="section">
+            <h2>Tokenomics</h2>
+            <div class="tokenomics-grid">
+                <div class="card glass">
+                    <h3>1 Billion</h3>
+                    <p>Total Supply</p>
+                </div>
+                <div class="card glass">
+                    <h3>0%</h3>
+                    <p>Buy/Sell Tax</p>
+                </div>
+                <div class="card glass">
+                    <h3>Burned</h3>
+                    <p>Liquidity Pool</p>
+                </div>
+                <div class="card glass">
+                    <h3>Revoked</h3>
+                    <p>Mint Authority</p>
+                </div>
+            </div>
+            
+            <div class="contract-address glass">
+                <p>Contract Address:</p>
+                <code id="ca">EqzogyGM1RKUdwpNgUeuWLy6L8wiFxGxFQcugkiPsemc</code>
+                <div class="ca-btns">
+                    <button onclick="copyCA()" class="btn-copy">Copy</button>
+                    <a href="https://solscan.io/token/EqzogyGM1RKUdwpNgUeuWLy6L8wiFxGxFQcugkiPsemc" target="_blank" rel="noopener noreferrer" class="btn-solscan">Solscan</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="chart-section" class="section">
+            <h2>Live Price Chart</h2>
+            <div class="chart-container glass">
+                <iframe 
+                    src="https://dexscreener.com/solana/EqzogyGM1RKUdwpNgUeuWLy6L8wiFxGxFQcugkiPsemc?embed=1&theme=dark" 
+                    frameborder="0" 
+                    allow="clipboard-write" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <section id="collection" class="section">
+            <h2>The Cosmic Collection</h2>
+            <div class="nft-grid">
+                <div class="nft-card glass">
+                    <div class="nft-image-container">
+                        <img src="assets/nft/galactic_cat.png" alt="Galactic Cat">
+                    </div>
+                    <div class="nft-info">
+                        <h4>Galactic Cat</h4>
+                        <span class="rarity epic">Epic</span>
+                    </div>
+                </div>
+                <div class="nft-card glass">
+                    <div class="nft-image-container">
+                        <img src="assets/nft/quazr_core.png" alt="Quazr Core">
+                    </div>
+                    <div class="nft-info">
+                        <h4>Quazr Core</h4>
+                        <span class="rarity legendary">Legendary</span>
+                    </div>
+                </div>
+                <div class="nft-card glass">
+                    <div class="nft-image-container">
+                        <img src="assets/nft/shiba_astronaut.png" alt="Shiba Astronaut">
+                    </div>
+                    <div class="nft-info">
+                        <h4>Shiba Astronaut</h4>
+                        <span class="rarity rare">Rare</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="howtobuy" class="section glass">
+            <h2>How to Buy</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-num">1</span>
+                    <h4>Create Wallet</h4>
+                    <p>Download Phantom or Solflare wallet from the app store.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">2</span>
+                    <h4>Get Some SOL</h4>
+                    <p>Buy SOL on an exchange and send it to your wallet.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">3</span>
+                    <h4>Go to Jupiter</h4>
+                    <p>Connect your wallet to jup.ag and paste the $QZSOL address.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">4</span>
+                    <h4>Swap for $QZSOL</h4>
+                    <p>Swap your SOL for $QZSOL and join the cosmic journey!</p>
+                </div>
+            </div>
+        </section>
+        <section id="support" class="section glass">
+            <div class="support-section-inner">
+                <h2>Support the Project</h2>
+                <p class="support-desc">Love what Quazr is building? Support the cosmic mission directly by donating to our development wallet.</p>
+
+                <div class="crypto-donation glass">
+                    <div class="crypto-header">
+                        <img src="https://cryptologos.cc/logos/solana-sol-logo.svg?v=024" alt="Solana" class="sol-logo">
+                        <span>Donate via Solana</span>
+                    </div>
+                    <div class="address-box">
+                        <code id="sol-address">ExnLqmHs1zMe4CbFtoygooiVSBomH2hwALWefeWQ1GHY</code>
+                        <button onclick="copySolAddress()" class="btn-copy-sol">Copy</button>
+                    </div>
+                    <p class="crypto-note">Send SOL or $QZSOL directly to this address.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Quazr Token. All rights reserved.</p>
+            <div class="socials">
+                <a href="https://x.com/hoodpi_arris" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://www.instagram.com/jjaybeeze1/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="#">Telegram</a>
+                <a href="https://dexscreener.com/solana/EqzogyGM1RKUdwpNgUeuWLy6L8wiFxGxFQcugkiPsemc" target="_blank" rel="noopener noreferrer">DexScreener</a>
+                <a href="https://solscan.io/token/EqzogyGM1RKUdwpNgUeuWLy6L8wiFxGxFQcugkiPsemc" target="_blank" rel="noopener noreferrer">Solscan</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyCA() {
+            const ca = document.getElementById('ca').innerText;
+            navigator.clipboard.writeText(ca);
+            alert('Contract Address copied to clipboard!');
+        }
+
+        function copySolAddress() {
+            const address = document.getElementById('sol-address').innerText;
+            navigator.clipboard.writeText(address);
+            alert('Solana Address copied to clipboard!');
+        }
+    </script>
+</body>
+</html>

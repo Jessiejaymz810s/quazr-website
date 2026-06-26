@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ FlashArb — MEV Arbitrage Dashboard</title>
+  <meta name="description" content="Real-time monitoring dashboard for Flashbots MEV arbitrage trading bot">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-secondary: #111827;
+      --bg-card: #1a2235;
+      --bg-card-hover: #1f2a40;
+      --border: #2a3550;
+      --text-primary: #e8ecf4;
+      --text-secondary: #8b95a8;
+      --text-muted: #5a6478;
+      --accent-green: #00e676;
+      --accent-green-dim: rgba(0,230,118,0.15);
+      --accent-blue: #448aff;
+      --accent-blue-dim: rgba(68,138,255,0.15);
+      --accent-purple: #b388ff;
+      --accent-purple-dim: rgba(179,136,255,0.15);
+      --accent-orange: #ff9100;
+      --accent-orange-dim: rgba(255,145,0,0.15);
+      --accent-red: #ff5252;
+      --accent-red-dim: rgba(255,82,82,0.15);
+      --gradient-main: linear-gradient(135deg, #448aff 0%, #b388ff 50%, #00e676 100%);
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.3);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Inter',system-ui,sans-serif;
+      background:var(--bg-primary);
+      color:var(--text-primary);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    .bg-grid {
+      position:fixed; inset:0; z-index:0;
+      background-image:
+        linear-gradient(rgba(68,138,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(68,138,255,0.03) 1px, transparent 1px);
+      background-size:60px 60px;
+    }
+    .bg-glow {
+      position:fixed; top:-200px; right:-200px; width:600px; height:600px;
+      background:radial-gradient(circle, rgba(68,138,255,0.08) 0%, transparent 70%);
+      z-index:0; pointer-events:none;
+    }
+    .bg-glow-2 {
+      position:fixed; bottom:-200px; left:-100px; width:500px; height:500px;
+      background:radial-gradient(circle, rgba(0,230,118,0.06) 0%, transparent 70%);
+      z-index:0; pointer-events:none;
+    }
+    .app { position:relative; z-index:1; max-width:1400px; margin:0 auto; padding:24px; }
+
+    /* Header */
+    header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:20px 28px; margin-bottom:28px;
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); backdrop-filter:blur(12px);
+    }
+    .logo { display:flex; align-items:center; gap:14px; }
+    .logo-icon {
+      width:44px; height:44px; border-radius:12px;
+      background:var(--gradient-main); display:flex; align-items:center;
+      justify-content:center; font-size:22px;
+      box-shadow:0 0 20px rgba(68,138,255,0.3);
+    }
+    .logo h1 { font-size:22px; font-weight:800; letter-spacing:-0.5px; }
+    .logo span { color:var(--accent-blue); }
+    .header-status { display:flex; align-items:center; gap:16px; }
+    .status-badge {
+      display:flex; align-items:center; gap:8px; padding:8px 16px;
+      border-radius:20px; font-size:13px; font-weight:600;
+    }
+    .status-badge.running {
+      background:var(--accent-green-dim); color:var(--accent-green);
+      border:1px solid rgba(0,230,118,0.3);
+    }
+    .status-badge.stopped {
+      background:var(--accent-red-dim); color:var(--accent-red);
+      border:1px solid rgba(255,82,82,0.3);
+    }
+    .pulse {
+      width:8px; height:8px; border-radius:50%; background:var(--accent-green);
+      animation:pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(0,230,118,0.4); }
+      50% { opacity:0.7; box-shadow:0 0 0 8px rgba(0,230,118,0); }
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:16px; margin-bottom:28px;
+    }
+    .stat-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:22px 24px;
+      transition:all 0.3s ease; position:relative; overflow:hidden;
+    }
+    .stat-card:hover { transform:translateY(-2px); border-color:var(--accent-blue); box-shadow:var(--shadow-card); }
+    .stat-card .icon {
+      width:40px; height:40px; border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; margin-bottom:14px;
+    }
+    .stat-card .label { font-size:12px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-bottom:6px; }
+    .stat-card .value { font-size:28px; font-weight:800; letter-spacing:-1px; font-family:'JetBrains Mono','Inter',monospace; }
+    .stat-card .sub { font-size:12px; color:var(--text-muted); margin-top:4px; }
+    .stat-card.profit .icon { background:var(--accent-green-dim); }
+    .stat-card.profit .value { color:var(--accent-green); }
+    .stat-card.trades .icon { background:var(--accent-blue-dim); }
+    .stat-card.trades .value { color:var(--accent-blue); }
+    .stat-card.scans .icon { background:var(--accent-purple-dim); }
+    .stat-card.scans .value { color:var(--accent-purple); }
+    .stat-card.opps .icon { background:var(--accent-orange-dim); }
+    .stat-card.opps .value { color:var(--accent-orange); }
+    .stat-card.gas .icon { background:var(--accent-red-dim); }
+    .stat-card.bundles .icon { background:var(--accent-blue-dim); }
+
+    /* Main Layout */
+    .main-grid { display:grid; grid-template-columns:1fr 380px; gap:20px; }
+    @media(max-width:960px) { .main-grid { grid-template-columns:1fr; } }
+
+    /* Panel */
+    .panel {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:var(--radius); overflow:hidden;
+    }
+    .panel-header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 24px; border-bottom:1px solid var(--border);
+    }
+    .panel-header h2 { font-size:15px; font-weight:700; display:flex; align-items:center; gap:8px; }
+    .panel-body { padding:0; }
+
+    /* Trade Log */
+    .trade-log { max-height:460px; overflow-y:auto; }
+    .trade-log::-webkit-scrollbar { width:6px; }
+    .trade-log::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+    .trade-item {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 24px; border-bottom:1px solid rgba(42,53,80,0.5);
+      transition:background 0.2s;
+    }
+    .trade-item:hover { background:var(--bg-card-hover); }
+    .trade-item:last-child { border-bottom:none; }
+    .trade-left { display:flex; align-items:center; gap:12px; }
+    .trade-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:16px; }
+    .trade-icon.success { background:var(--accent-green-dim); }
+    .trade-icon.pending { background:var(--accent-orange-dim); }
+    .trade-icon.failed { background:var(--accent-red-dim); }
+    .trade-pair { font-weight:600; font-size:14px; }
+    .trade-dex { font-size:12px; color:var(--text-muted); }
+    .trade-right { text-align:right; }
+    .trade-profit { font-weight:700; font-family:'JetBrains Mono',monospace; font-size:14px; }
+    .trade-profit.positive { color:var(--accent-green); }
+    .trade-profit.negative { color:var(--accent-red); }
+    .trade-time { font-size:11px; color:var(--text-muted); }
+
+    /* Pairs Panel */
+    .pair-item {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px; border-bottom:1px solid rgba(42,53,80,0.5);
+    }
+    .pair-item:last-child { border-bottom:none; }
+    .pair-name { font-weight:600; font-size:14px; }
+    .pair-spread { font-family:'JetBrains Mono',monospace; font-size:13px; }
+    .pair-spread.arb { color:var(--accent-green); }
+    .pair-spread.no-arb { color:var(--text-muted); }
+
+    /* Config Panel */
+    .config-item {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 20px; border-bottom:1px solid rgba(42,53,80,0.5);
+    }
+    .config-item:last-child { border-bottom:none; }
+    .config-label { font-size:13px; color:var(--text-secondary); }
+    .config-value { font-size:13px; font-family:'JetBrains Mono',monospace; color:var(--text-primary); font-weight:500; }
+    .config-value.addr { font-size:11px; color:var(--accent-blue); }
+
+    /* Empty State */
+    .empty-state {
+      text-align:center; padding:48px 24px; color:var(--text-muted);
+    }
+    .empty-state .icon { font-size:40px; margin-bottom:12px; opacity:0.5; }
+    .empty-state p { font-size:13px; }
+
+    /* Animations */
+    @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    .animate-in { animation:fadeIn 0.4s ease forwards; }
+    .delay-1 { animation-delay:0.1s; opacity:0; }
+    .delay-2 { animation-delay:0.2s; opacity:0; }
+    .delay-3 { animation-delay:0.3s; opacity:0; }
+    .delay-4 { animation-delay:0.4s; opacity:0; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="bg-glow-2"></div>
+
+  <div class="app">
+    <header class="animate-in">
+      <div class="logo">
+        <div class="logo-icon">⚡</div>
+        <div>
+          <h1>Flash<span>Arb</span></h1>
+          <div style="font-size:12px;color:var(--text-muted)">MEV Arbitrage Dashboard</div>
+        </div>
+      </div>
+      <div class="header-status">
+        <div class="status-badge running" id="statusBadge">
+          <div class="pulse" id="statusPulse"></div>
+          <span id="statusText">Scanning</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card profit animate-in delay-1">
+        <div class="icon">💰</div>
+        <div class="label">Total Profit</div>
+        <div class="value" id="totalProfit">0.000</div>
+        <div class="sub">ETH earned</div>
+      </div>
+      <div class="stat-card trades animate-in delay-1">
+        <div class="icon">🔄</div>
+        <div class="label">Trades Executed</div>
+        <div class="value" id="totalTrades">0</div>
+        <div class="sub">successful arbs</div>
+      </div>
+      <div class="stat-card scans animate-in delay-2">
+        <div class="icon">🔍</div>
+        <div class="label">Scans</div>
+        <div class="value" id="totalScans">0</div>
+        <div class="sub">price checks</div>
+      </div>
+      <div class="stat-card opps animate-in delay-2">
+        <div class="icon">🎯</div>
+        <div class="label">Opportunities</div>
+        <div class="value" id="totalOpps">0</div>
+        <div class="sub">detected</div>
+      </div>
+      <div class="stat-card bundles animate-in delay-3">
+        <div class="icon">📦</div>
+        <div class="label">Bundles Sent</div>
+        <div class="value" id="bundlesSent">0</div>
+        <div class="sub">to Flashbots relay</div>
+      </div>
+      <div class="stat-card gas animate-in delay-3">
+        <div class="icon">⛽</div>
+        <div class="label">Uptime</div>
+        <div class="value" id="uptime">0h 0m</div>
+        <div class="sub">since start</div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main-grid">
+      <div class="panel animate-in delay-3">
+        <div class="panel-header">
+          <h2>📋 Trade Log</h2>
+          <span style="font-size:12px;color:var(--text-muted)" id="tradeCount">0 trades</span>
+        </div>
+        <div class="panel-body trade-log" id="tradeLog">
+          <div class="empty-state">
+            <div class="icon">🔍</div>
+            <p>Waiting for trades...<br>The bot will populate this log as it finds and executes arbitrage opportunities.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="panel animate-in delay-4">
+          <div class="panel-header">
+            <h2>📊 Monitored Pairs</h2>
+          </div>
+          <div class="panel-body" id="pairsList">
+            <div class="pair-item"><span class="pair-name">WETH / USDC</span><span class="pair-spread no-arb">scanning...</span></div>
+            <div class="pair-item"><span class="pair-name">WETH / USDT</span><span class="pair-spread no-arb">scanning...</span></div>
+            <div class="pair-item"><span class="pair-name">WETH / DAI</span><span class="pair-spread no-arb">scanning...</span></div>
+            <div class="pair-item"><span class="pair-name">USDC / USDT</span><span class="pair-spread no-arb">scanning...</span></div>
+            <div class="pair-item"><span class="pair-name">WETH / WBTC</span><span class="pair-spread no-arb">scanning...</span></div>
+            <div class="pair-item"><span class="pair-name">WETH / LINK</span><span class="pair-spread no-arb">scanning...</span></div>
+          </div>
+        </div>
+
+        <div class="panel animate-in delay-4">
+          <div class="panel-header">
+            <h2>⚙️ Configuration</h2>
+          </div>
+          <div class="panel-body">
+            <div class="config-item"><span class="config-label">Network</span><span class="config-value">Ethereum Mainnet</span></div>
+            <div class="config-item"><span class="config-label">DEX A</span><span class="config-value">Uniswap V2</span></div>
+            <div class="config-item"><span class="config-label">DEX B</span><span class="config-value">SushiSwap</span></div>
+            <div class="config-item"><span class="config-label">Min Profit</span><span class="config-value">0.005 ETH</span></div>
+            <div class="config-item"><span class="config-label">Scan Interval</span><span class="config-value">3000ms</span></div>
+            <div class="config-item"><span class="config-label">Relay</span><span class="config-value addr">relay.flashbots.net</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const state = { scans:0, opps:0, trades:0, profit:0, bundles:0, startTime:Date.now(), tradeLog:[] };
+
+    function formatTime(ms) {
+      const h = Math.floor(ms/3600000);
+      const m = Math.floor((ms%3600000)/60000);
+      return `${h}h ${m}m`;
+    }
+
+    function addTrade(trade) {
+      state.tradeLog.unshift(trade);
+      const log = document.getElementById('tradeLog');
+      if (state.tradeLog.length === 1) log.innerHTML = '';
+      const item = document.createElement('div');
+      item.className = 'trade-item animate-in';
+      const iconClass = trade.status === 'success' ? 'success' : trade.status === 'pending' ? 'pending' : 'failed';
+      const icon = trade.status === 'success' ? '✅' : trade.status === 'pending' ? '⏳' : '❌';
+      const profitClass = trade.profit >= 0 ? 'positive' : 'negative';
+      const profitSign = trade.profit >= 0 ? '+' : '';
+      item.innerHTML = `
+        <div class="trade-left">
+          <div class="trade-icon ${iconClass}">${icon}</div>
+          <div><div class="trade-pair">${trade.pair}</div><div class="trade-dex">${trade.buyDex} → ${trade.sellDex}</div></div>
+        </div>
+        <div class="trade-right">
+          <div class="trade-profit ${profitClass}">${profitSign}${trade.profit.toFixed(4)} ETH</div>
+          <div class="trade-time">${new Date().toLocaleTimeString()}</div>
+        </div>`;
+      log.prepend(item);
+      document.getElementById('tradeCount').textContent = `${state.tradeLog.length} trades`;
+    }
+
+    // Connect to WebSocket Server
+    const ws = new WebSocket('ws://localhost:8080');
+
+    ws.onopen = () => {
+      document.getElementById('statusBadge').className = 'status-badge running';
+      document.getElementById('statusText').textContent = 'Connected & Scanning';
+    };
+
+    ws.onclose = () => {
+      document.getElementById('statusBadge').className = 'status-badge stopped';
+      document.getElementById('statusText').textContent = 'Disconnected';
+    };
+
+    ws.onmessage = (event) => {
+      try {
+        const msg = JSON.parse(event.data);
+        if (msg.type === 'stats') {
+          const data = msg.data;
+          
+          document.getElementById('totalScans').textContent = data.scans.toLocaleString();
+          document.getElementById('totalOpps').textContent = data.opps.toLocaleString();
+          document.getElementById('totalTrades').textContent = data.trades.toLocaleString();
+          document.getElementById('totalProfit').textContent = parseFloat(data.profit).toFixed(4);
+          document.getElementById('bundlesSent').textContent = data.bundles.toLocaleString();
+          document.getElementById('uptime').textContent = formatTime(data.uptime);
+          
+          if (data.newTrade) {
+            addTrade(data.newTrade);
+          }
+        }
+      } catch (err) {
+        console.error('Error parsing WebSocket message:', err);
+      }
+    };
+  </script>
+</body>
+</html>

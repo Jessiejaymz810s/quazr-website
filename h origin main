@@ -1,0 +1,33 @@
+[33mcommit 39a38ff0aea491a57994905224d5917b83bab15d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Jessiejaymz810s <jessiejaymz810s@users.noreply.github.com>
+Date:   Thu May 7 15:38:04 2026 -0400
+
+    Restore site visibility by moving files to root and fixing assets
+
+[33mcommit 75c7d50291715a6cbeed005fdc7640b9c9f91ede[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Jessiejaymz810s <jessiejaymz810s@users.noreply.github.com>
+Date:   Wed May 6 13:58:31 2026 -0400
+
+    Add Stripe payment button + GitHub Pages deployment
+
+[33mcommit 123254b5f890966d3d3bb45f63b6e054c9789007[m
+Author: Jessie beck <beck14038@gmail.com>
+Date:   Wed May 6 12:30:18 2026 -0400
+
+    Create SECURITY.md for security policy
+    
+    Added a security policy document outlining supported versions and vulnerability reporting.
+    
+    Signed-off-by: Jessie beck <beck14038@gmail.com>
+
+[33mcommit 67a851572923cb82e03525ff6de33b8d236dc43e[m
+Author: Jjaybeeze <137121448+Jessiejaymz810s@users.noreply.github.com>
+Date:   Wed May 6 11:29:14 2026 -0400
+
+    chore: update RPC endpoints, add multi-chain sweep report, and introduce scripts to audit and revoke wallet permissions.
+
+[33mcommit a379cecf40b7beafdfb95b7bba5dc782d8352498[m
+Author: Jjaybeeze <137121448+Jessiejaymz810s@users.noreply.github.com>
+Date:   Sat May 2 11:39:28 2026 -0400
+
+    feat: add NFT minting script
