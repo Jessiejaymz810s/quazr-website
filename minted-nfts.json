@@ -1,0 +1,25 @@
+{
+  "collection": "Quazr Cosmic Collection",
+  "network": "mainnet-beta",
+  "mintedBy": "ExnLqmHs1zMe4CbFtoygooiVSBomH2hwALWefeWQ1GHY",
+  "nfts": [
+    {
+      "id": "galactic_cat",
+      "name": "Quazr Galactic Cat",
+      "mint": "C7b5mxAXEHBYhBEKvFGy8s2HjmEDnAntuqVS18YTLoyW",
+      "explorer": "https://explorer.solana.com/address/C7b5mxAXEHBYhBEKvFGy8s2HjmEDnAntuqVS18YTLoyW"
+    },
+    {
+      "id": "quazr_core",
+      "name": "Quazr Core",
+      "mint": "Fe3gRxHBiQzzHy5p9V1nJsGR96yDXoxZPFv8Nf74HQ5s",
+      "explorer": "https://explorer.solana.com/address/Fe3gRxHBiQzzHy5p9V1nJsGR96yDXoxZPFv8Nf74HQ5s"
+    },
+    {
+      "id": "shiba_astronaut",
+      "name": "Quazr Shiba Astronaut",
+      "mint": "7SZqoyE9jwdN2kXi5JcLrRDyyr8wNAYeSYqgxwKTrY5h",
+      "explorer": "https://explorer.solana.com/address/7SZqoyE9jwdN2kXi5JcLrRDyyr8wNAYeSYqgxwKTrY5h"
+    }
+  ]
+}

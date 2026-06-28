@@ -1,0 +1,15 @@
+{
+  "name": "BZbtc",
+  "symbol": "BZBTC",
+  "description": "bzbtc token on Solana mainnet",
+  "image": "https://raw.githubusercontent.com/Jessiejaymz810s/quazr-website/main/assets/bzbtc.jpg",
+  "attributes": [],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://raw.githubusercontent.com/Jessiejaymz810s/quazr-website/main/assets/bzbtc.jpg",
+        "type": "image/jpeg"
+      }
+    ]
+  }
+}
