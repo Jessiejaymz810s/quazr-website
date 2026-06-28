@@ -727,3 +727,30 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+.mint-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.wallet-connected .mint-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.btn-connect {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255,126,95,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-connect:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255,126,95,0.6);
+}

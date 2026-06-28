@@ -9,11 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.min.js"></script>
 </head>
 <body>
     <canvas id="space-canvas"></canvas>
     <div id="toast-container" class="toast-container"></div>
     <nav class="navbar">
+            <button id="connect-wallet" class="btn btn-connect" onclick="connectWallet()">Connect Wallet</button>
         <div class="logo">QUAZR</div>
         <div class="nav-links">
             <a href="#about">About</a>
@@ -101,6 +103,7 @@
             <h2>The Cosmic Collection</h2>
             <div class="nft-grid">
                 <div class="nft-card glass">
+                <button class="mint-btn btn btn-primary" onclick="mintNFT('galactic_cat')">Mint</button>
                     <div class="nft-image-container">
                         <img src="assets/nft/galactic_cat.png" alt="Galactic Cat">
                     </div>
@@ -110,6 +113,7 @@
                     </div>
                 </div>
                 <div class="nft-card glass">
+                <button class="mint-btn btn btn-primary" onclick="mintNFT('quazr_core')">Mint</button>
                     <div class="nft-image-container">
                         <img src="assets/nft/quazr_core.png" alt="Quazr Core">
                     </div>
@@ -119,6 +123,7 @@
                     </div>
                 </div>
                 <div class="nft-card glass">
+                <button class="mint-btn btn btn-primary" onclick="mintNFT('shiba_astronaut')">Mint</button>
                     <div class="nft-image-container">
                         <img src="assets/nft/shiba_astronaut.png" alt="Shiba Astronaut">
                     </div>
@@ -304,5 +309,6 @@
             revealObserver.observe(element);
         });
 window.addEventListener('load', () => { showToast('Toast test: page loaded'); });
+<script src="mint.js"></script>
 </body>
 </html>
