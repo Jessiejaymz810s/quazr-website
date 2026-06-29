@@ -1,0 +1,15 @@
+import { Connection, VersionedTransaction } from '@solana/web3.js';
+
+const txStr = 'AejGS6duPpcjrYs5jWlJWR3cuDaYsqs/1Z+0ExteT1qxD8zGxO9Rtp0A7pObw9F8xXQcZgMnHGPZTDbLK2eV3g2AAQAFDs9yJJt26Oh7xv8uFWjrE4qiC4b+B6K7Cg/Mka3Dn4mr2azfdvbdS0s1FxyK4bi50saUUhg6HuAZtFCHgfRieQr3Ij7nSocCmyBQQlKHqyJi3XwkWa0nPEs+KFQwacKKqJQE90Jjw8FlPLhH/4+cAffIcizrq99koK3B+CQLB4eppCVlAsrlYXRk3eHaG8NqsvTYSjW0xnGhWre6SvgXlIvR8DCRstr37xdRSklyuRqkWE0JgSY83JXhZ01iPg1UWVP9mBwiC00UH19QQ6j1eVr/27jIKSwkzfWtAzD7WhI6XYpdgTD73hvegWE3tWP5mBWF0RjVqt7FZPViFUEfHneF+ohfzCRC2hXmcKl+HZ23BCHahWHGDUAqB9EXIGU+NgMGRm/lIRcy/+ytunLDm+e8jOW7xfcSayxDmzpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG3fbh12Whk9nL4UbO63msHLSF7V9bN5E6jPWFfv8AqakqWotPKVlShCVQqpP9W5W1rOao65IMk5QuQ2kMIOxzSZ51h/K22gNdJ4ajMuW2+ED3vhSzS17vwKqXdqMgda5YHDx4S1fo6iJDeqSJn/AP6lhB1OM4hGkCFCX00Z//xgYJAAkDoIYBAAAAAAAJAAUCwCcJAAoCAAF8AwAAAM9yJJt26Oh7xv8uFWjrE4qiC4b+B6K7Cg/Mka3Dn4mrIAAAAAAAAABEc0wyYjc0bnBQc1Y2QUJkNENMN3ZyMnRmRE5HaGRxbXC0twAAAAAApQAAAAAAAAAG3fbh12Whk9nL4UbO63msHLSF7V9bN5E6jPWFfv8AqQsEAQ8AEAEBDBQAERICDw0DAQQFBgcOCAsLCxMKECCvr20fDZib7YCWmAAAAAAAAMqaOwAAAAAAAAAAAAAAAAsDAQAAAQkBjsYA8pzFnlrYt+4SwjzHO3pbiRRiRs3w8L+AY63zEnUBPwVABUodBw==';
+
+const txBuf = Buffer.from(txStr, 'base64');
+const tx = VersionedTransaction.deserialize(txBuf);
+
+const connection = new Connection('https://api.mainnet-beta.solana.com', 'confirmed');
+
+async function main() {
+  const res = await connection.simulateTransaction(tx);
+  console.log(JSON.stringify(res.value, null, 2));
+}
+
+main().catch(console.error);

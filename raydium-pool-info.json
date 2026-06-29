@@ -1,12 +1,12 @@
 {
-  "poolId": "36aYAVBa3xtwpgdfUjQawgeg7azNpvpMtBtdmzwo8koS",
-  "lpMint": "GWGSL8vVc8FjPj5CGjRmDN7hpvm7g8WkmJDeH52AQomF",
-  "mintA": "EqzogyGM1RKUdwpNgUeuWLy6L8wiFxGxFQcugkiPsemc",
+  "poolId": "HdhzL63TXe54GAHdAJwvWtqNcN5VrTwQUhsKfERvCqou",
+  "lpMint": "AxojQQukFrD4DMxSooznRLk8HbmFwotaZn6XuCtozm1J",
+  "mintA": "5xNuRxxiGjf4FzpCqLgC65V4FTBeMxFZYerGpydhKboj",
   "mintB": "So11111111111111111111111111111111111111112",
   "initialLiquidity": {
-    "qzsolAmount": 100000,
-    "solAmount": 1
+    "qzsolAmount": 1,
+    "solAmount": 0.005
   },
-  "createdAt": "2026-06-26T16:34:24Z",
-  "txId": "37FzPE86BUwZiY3ytwSRKwQQ4WjbLa74wLXrAAkHus356BMPJSmg7zgbi4pPqsHnPFbnhv2KyvGJiw1tvjRgcWvG"
+  "createdAt": "2026-06-29T21:59:59.738Z",
+  "txId": "2g6UuE4LwwPSGqkApJUnyeKc3eCLcx7j8RLoNuBF1dg4XGxp2LVCzPXTetmEj527dw3vwV2J7wnR8PzKyZAbu5xU"
 }

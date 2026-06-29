@@ -84,6 +84,11 @@ const NFT_MINTS = {
     name: "Quazr Shiba Astronaut",
     mint: "7SZqoyE9jwdN2kXi5JcLrRDyyr8wNAYeSYqgxwKTrY5h",
     explorer: "https://explorer.solana.com/address/7SZqoyE9jwdN2kXi5JcLrRDyyr8wNAYeSYqgxwKTrY5h"
+  },
+  american_flag: {
+    name: "American Flag Token",
+    mint: "5xNuRxxiGjf4FzpCqLgC65V4FTBeMxFZYerGpydhKboj",
+    explorer: "https://explorer.solana.com/address/5xNuRxxiGjf4FzpCqLgC65V4FTBeMxFZYerGpydhKboj"
   }
 };
 
