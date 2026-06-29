@@ -2,12 +2,12 @@
   "name": "American Flag",
   "symbol": "FLAG",
   "description": "Interest-bearing American Flag token on Solana",
-  "image": "https://raw.githubusercontent.com/Jessiejaymz810s/quazr-website/main/assets/nft/rfkj.jpg",
+  "image": "https://jessiejaymz810s.github.io/quazr-website/assets/nft/rfkj.jpg",
   "attributes": [],
   "properties": {
     "files": [
       {
-        "uri": "https://raw.githubusercontent.com/Jessiejaymz810s/quazr-website/main/assets/nft/rfkj.jpg",
+        "uri": "https://jessiejaymz810s.github.io/quazr-website/assets/nft/rfkj.jpg",
         "type": "image/jpeg"
       }
     ]

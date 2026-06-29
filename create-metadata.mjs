@@ -13,7 +13,7 @@ import os from "os";
 const MINT_ADDRESS = "5xNuRxxiGjf4FzpCqLgC65V4FTBeMxFZYerGpydhKboj";
 const TOKEN_NAME = "American Flag Token";
 const TOKEN_SYMBOL = "FLAG";
-const METADATA_URI = "https://raw.githubusercontent.com/Jessiejaymz810s/quazr-website/main/american-flag-metadata.json";
+const METADATA_URI = "https://jessiejaymz810s.github.io/quazr-website/american-flag-metadata.json";
 const RPC_URL = "https://api.mainnet-beta.solana.com";
 
 async function main() {
