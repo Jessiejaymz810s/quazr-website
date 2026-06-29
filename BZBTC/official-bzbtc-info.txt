@@ -1,0 +1,8 @@
+Official BZBTC Token Information
+
+Name: BZbtc
+Symbol: BZBTC
+Mint Address: 791hDNsVndoQRuy6TELFjY7txcQ76WwjVzmquVXyWbST
+
+Note: This is your official BZBTC token on the Solana Mainnet with a supply of 1,000,000,000. 
+I checked your wallet, and it turns out you don't actually have any duplicate BZBTC tokens! The other single-supply tokens in your wallet are actually your Quazr NFTs (specifically the Shiba Astronaut and Galactic Cat NFTs). 
